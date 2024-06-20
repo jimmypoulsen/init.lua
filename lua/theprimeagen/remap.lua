@@ -55,3 +55,8 @@ vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
 
+-- Disable arrow keys
+vim.keymap.set({"n", "v", "i"}, "<Up>", "<Nop>")
+vim.keymap.set({"n", "v", "i"}, "<Left>", "<Nop>")
+vim.keymap.set({"n", "v", "i"}, "<Right>", "<Nop>")
+vim.keymap.set({"n", "v", "i"}, "<Down>", "<Nop>")

@@ -6,7 +6,7 @@ return {
             -- A list of parser names, or "all"
             ensure_installed = {
                 "vimdoc", "javascript", "typescript", "c", "lua", "rust",
-                "jsdoc", "bash",
+                "jsdoc", "bash", "html", "ruby"
             },
 
             -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -17,12 +17,13 @@ return {
             auto_install = true,
 
             indent = {
-                enable = true
+                -- Setting this to false as auto-indent doesn't work if true
+                enable = false
             },
 
             highlight = {
                 -- `false` will disable the whole extension
-                enable = true,
+                enable = false,
 
                 -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
                 -- Set this to `true` if you depend on "syntax" being enabled (like for indentation).
