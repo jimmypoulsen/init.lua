@@ -1,6 +1,9 @@
 require("theprimeagen.set")
 require("theprimeagen.remap")
 require("theprimeagen.lazy_init")
+require("lualine").setup {
+  options = { theme = "ayu_mirage" }
+}
 
 -- DO.not
 -- DO NOT INCLUDE THIS
