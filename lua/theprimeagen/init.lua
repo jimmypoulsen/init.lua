@@ -72,4 +72,4 @@ vim.g.netrw_winsize = 25
 
 vim.opt.clipboard = "unnamedplus"
 
-vim.cmd("colorscheme rose-pine-moon")
+vim.cmd("colorscheme tokyonight")
