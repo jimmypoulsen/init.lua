@@ -29,10 +29,10 @@ return {
                 "lua_ls",
                 "rust_analyzer",
                 "gopls",
+                "solargraph",  -- Ensure Solargraph is installed via Mason
             },
             handlers = {
                 function(server_name) -- default handler (optional)
-
                     require("lspconfig")[server_name].setup {
                         capabilities = capabilities
                     }
@@ -44,9 +44,31 @@ return {
                         capabilities = capabilities,
                         settings = {
                             Lua = {
-				    runtime = { version = "Lua 5.1" },
+                                runtime = { version = "Lua 5.1" },
                                 diagnostics = {
                                     globals = { "vim", "it", "describe", "before_each", "after_each" },
+                                }
+                            }
+                        }
+                    }
+                end,
+
+                ["solargraph"] = function() -- Setup for Solargraph (Ruby)
+                    local lspconfig = require("lspconfig")
+                    lspconfig.solargraph.setup {
+                        capabilities = capabilities,
+                        settings = {
+                            solargraph = {
+                                diagnostics = true,
+                                useBundler = true,  -- Ensure bundler is used to load gems (important if you're using a Gemfile)
+                                gemfile = "Gemfile", -- Ensure it uses your Gemfile for dependencies
+                                documentSymbols = true,
+                                foldable = true,
+                                completion = true,
+                                autocompletion = true,
+                                documentation = {
+                                    enable = true,  -- Ensure docs are enabled
+                                    gemDocs = true, -- Enable docs from gems
                                 }
                             }
                         }
