@@ -70,6 +70,9 @@ vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 
+vim.api.nvim_create_user_command('E', 'Explore', {})
+
 vim.opt.clipboard = "unnamedplus"
+vim.api.nvim_set_option("clipboard", "unnamedplus")
 
 vim.cmd("colorscheme tokyonight")
